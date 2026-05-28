@@ -39,10 +39,10 @@ namespace Exames230122
             if(exame.CheckRepetido(numero,data))
             {
                 MessageBox.Show("Esse aluno já tem uma inscrição nessa data!", "Erro", MessageBoxButtons.OK);
-            }else if(exame.GetQtd()-1 < exame.GetDim())
+            }else if(exame.Quantidade-1 < exame.Dimensao)
             {
                 exame.Add(numero, data);
-                exame.GetIndexValues(exame.GetQtd()-1, out num, out date);
+                exame.GetIndexValues(exame.Quantidade-1, out num, out date);
                 string frase = $"{num} -> {date.ToShortDateString()}";
                 ltbRegistos.Items.Add(frase);
             }else
@@ -56,7 +56,7 @@ namespace Exames230122
         {
             DateTime data = dtpData.Value.Date;
             int n;
-            string disciplina = exame.GetSigla();
+            string disciplina = exame.Sigla;
 
             n = exame.AlunosPorData(data);
             MessageBox.Show($"No dia {data} existiram {n} alunos na AE de {disciplina}");

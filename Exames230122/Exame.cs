@@ -14,18 +14,23 @@ namespace Exames230122
         int m_qtd;
         int m_dim = 28;
 
-        public int GetDim()
+        public double Dimensao
         {
-            return m_dim;
+            get { return m_dim; }
         }
-        public string GetSigla()
+
+        public string Sigla
         {
-            return m_sigla;
+            get { return m_sigla; }
         }
-        public int GetQtd()
+
+        public int Quantidade
         {
-            return m_qtd;
+            get { return m_qtd; }
         }
+
+        
+
         public Exame(string sigla)
         {
             m_sigla = sigla;
@@ -35,8 +40,9 @@ namespace Exames230122
         public void GetIndexValues(int index,out int numero,out DateTime data)
         {
             numero = m_presencas[index].numero;
-            data = m_presencas[index].GetData();
+            data = m_presencas[index].Data;
         }
+
         public void Add(int numero, DateTime data)
         {
             Inscricao insc = new Inscricao(data, numero);
@@ -48,7 +54,7 @@ namespace Exames230122
         {
             for(int i = 0; i < m_qtd;i++)
             {
-                if (m_presencas[i].numero == numero && m_presencas[i].GetData() == data)
+                if (m_presencas[i].numero == numero && m_presencas[i].Data == data)
                 {
                     return true;
                 }
@@ -62,7 +68,7 @@ namespace Exames230122
 
             for(int i = 0;i < m_qtd;i++)
             {
-                if (m_presencas[i].GetData().Date == data)
+                if (m_presencas[i].Data.Date == data)
                 {
                     soma++;
                 }

@@ -11,15 +11,16 @@ namespace Exames230122
         DateTime m_data;
         public int numero { get; set; }
 
+        public DateTime Data
+        {
+            get { return m_data; }
+        }
+
         public Inscricao(DateTime data,int numero)
         {
             this.m_data = data;
             this.numero = numero;
         }
-
-        public DateTime GetData()
-        {
-            return m_data;
-        }
+        
     }
 }
